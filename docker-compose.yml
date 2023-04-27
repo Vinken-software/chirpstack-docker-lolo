@@ -17,7 +17,7 @@ services:
       - REDIS_HOST=redis
       - POSTGRESQL_HOST=postgres
     ports:
-      - 8017:8080
+      - 8017:8018
 
   chirpstack-gateway-bridge-eu868:
     image: chirpstack/chirpstack-gateway-bridge:4
@@ -32,7 +32,7 @@ services:
   chirpstack-rest-api:
     image: chirpstack/chirpstack-rest-api:4
     restart: unless-stopped
-    command: --server chirpstack:8017 --bind 0.0.0.0:8090 --insecure
+    command: --server chirpstack:8018 --bind 0.0.0.0:8090 --insecure
     ports:
       - 8013:8090
     depends_on:
